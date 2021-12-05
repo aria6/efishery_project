@@ -1,0 +1,1 @@
+export const GREEN_EFISHERY = '#3bbd9f';
