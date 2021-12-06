@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
@@ -24,7 +25,7 @@ export default function Header() {
   return (
     <HeaderContainer>
       <LeftComponent>
-        <img
+        <Image
           alt='Efishery logo'
           src='/assets/images/efishery-logo.png'
           width='180'
