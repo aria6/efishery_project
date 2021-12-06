@@ -12,7 +12,7 @@ type Props = {
   selectedProvincies?: string;
 };
 
-async function useGetAddress({ type, selectedProvincies = '' }: Props) {
+export default async function useGetAddress({ type, selectedProvincies = '' }: Props) {
   let response = await fetchAPI(
     'https://stein.efishery.com/v1/storages/5e1edf521073e315924ceab4/option_area'
   );
@@ -37,5 +37,3 @@ async function useGetAddress({ type, selectedProvincies = '' }: Props) {
 
   return [];
 }
-
-export default useGetAddress;

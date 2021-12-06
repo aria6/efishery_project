@@ -1,4 +1,4 @@
-import useGetList from '../../src/hooks/useGetList';
+import getList from '../../src/hooks/useGetList';
 
 type MinAndMaxData = {
   maxPrice: 0;
@@ -10,7 +10,7 @@ type MinAndMaxData = {
 type PercentilParams = 'size' | 'price';
 
 export default async function getFisherySummary(req: any, res: any) {
-  let response = await useGetList();
+  let response = await getList();
   let listFishery = response.filter((item: FisheryItem) => item.uuid);
 
   let province = req.query.province;
@@ -72,8 +72,6 @@ export default async function getFisherySummary(req: any, res: any) {
     }
   );
 
-  //   TODO : Use middleware instead
-  res.set('Cache-Control', 'max-age=86400');
   res.status(200).json({
     ...minAndMaxData,
     totalData: filteredList.length,
