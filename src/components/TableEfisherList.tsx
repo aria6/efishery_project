@@ -7,8 +7,19 @@ import Loading from './Loading';
 import { GREEN, BORDER_GREY } from '../constants/colors';
 import { currencyIDR, currencyDollar, fetchAPI } from '../helpers';
 
-export default function TableEfisherList() {
-  let { data, error } = useSWR(`/api/getFisheryList`, fetchAPI);
+type Props = {
+  province: string;
+  city: string;
+  commodity: string;
+  size: string;
+};
+
+export default function TableEfisherList(props: Props) {
+  let { province, city, commodity, size } = props;
+  let { data, error } = useSWR(
+    `/api/getFisheryList?province=${province}&city=${city}&commodity=${commodity}&size=${size}`,
+    fetchAPI
+  );
 
   if (!error && !data) {
     return <Loading />;
