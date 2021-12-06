@@ -1,2 +1,2 @@
 export {default as fetchAPI} from './fetchAPI';
-export {currencyIDR} from './currencyFormat';
+export {currencyIDR, currencyDollar} from './currencyFormat';
