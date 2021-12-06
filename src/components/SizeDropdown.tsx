@@ -13,7 +13,7 @@ export default function SizeDropdown({ onChange, value }: DropdownProps) {
   let { data } = useSWR(`/api/getSize`, fetchAPI);
   return (
     <Dropdown
-      label='Size :'
+      label='Ukuran :'
       options={data?.data ?? []}
       onChange={onChange}
       value={value}

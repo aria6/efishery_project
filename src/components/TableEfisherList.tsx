@@ -40,6 +40,11 @@ export default function TableEfisherList(props: Props) {
         </tr>
       </thead>
       <tbody>
+        {data.list.length <= 0 && (
+          <tr>
+            <TdEmpty colSpan={9}> Data tidak ditemukan</TdEmpty>
+          </tr>
+        )}
         {data.list.map((data: FisheryItem, index: number) => {
           return (
             <tr key={`table${index}`}>
@@ -90,4 +95,9 @@ const Th = styled.th`
 const Td = styled.td`
   border: 1px solid ${BORDER_GREY};
   padding: 8px;
+`;
+
+const TdEmpty = styled(Td)`
+  text-align: center;
+  padding: 50px;
 `;
